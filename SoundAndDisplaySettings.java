@@ -185,7 +185,7 @@ public class SoundAndDisplaySettings extends PreferenceActivity implements
 
         if (mNotificationPulse != null &&
                 getResources().getBoolean(R.bool.has_intrusive_led) == false) {
-        /*    mSoundDisplaySettings.removePreference(mTrackballSettings);*/
+        //   mSoundDisplaySettings.removePreference(mTrackballSettings);
 	//KrazyKrivda mod to keep settings for sholes
 		mTrackballSettings.removePreference(mNotificationPulseBlend);
 		mTrackballSettings.removePreference(mBreathingLightColor);

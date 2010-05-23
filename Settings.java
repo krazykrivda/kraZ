@@ -2036,13 +2036,13 @@ public final class Settings {
         public static final String ADB_NOTIFY = "adb_notify";
             
         /**
-         * Weather Compcache is eanbled.
+         * Whether Compcache is eanbled.
          * @hide
          */
         public static final String COMPCACHE_ENABLED = "compcache_enabled";
 
         /**
-         * Weather Notification Pause is eanbled. KrazyKrivda
+         * Whether Notification Pause is eanbled. KrazyKrivda
          * @hide
          */
         public static final String NOTIFICATION_PAUSE = "notification_pause";

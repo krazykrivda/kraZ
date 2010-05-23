@@ -1957,6 +1957,7 @@ static Connection getConnection(Phone phone, Call call) {
     }
  
     //KrazyKrivda's hangup from headset mod (needs PhoneApp changes as well)
+    // just simple handleHeadsetHook overloaded function
     static boolean handleHeadsetHook(Phone phone, int x) {
         if (DBG) log("handleHeadsetHook()...");
         if (phone.getState() == Phone.State.IDLE) {

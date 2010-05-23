@@ -296,7 +296,8 @@ class NotificationManagerService extends INotificationManager.Stub
                     Binder.restoreCallingIdentity(identity);
                 }
 
-                // light KrazyKrivda
+                // light KrazyKrivda changed so LED lights won't clear
+		// until Notification is clicked or CLEAR ALL
                 /*mLights.clear();
                 mLedNotification = null;
                 updateLightsLocked();*/
@@ -774,11 +775,15 @@ class NotificationManagerService extends INotificationManager.Stub
 			int medVol = audioManager.getStreamVolume(3);
 			int vol = medVol-3; 		
 			// KrazyKrivda Music/Notificaiton MOD    
+		    
+			// getContentResolver is "undefined" when I try to compile?
+			// also was temporarily using NOTIFICATION_PULSE_BLEND just 
+			// to see if I COULD toggle this feature on and off
 		    if(audioManager.isMusicActive() /*&& Settings.System.getInt(
             		getContentResolver(),
             		Settings.System.NOTIFICATION_PULSE_BLEND, 0) == 0*/){
-			audioManager.setStreamVolume(1, medVol, 0);
-			audioManager.setStreamVolume(3, vol, 0);			
+			audioManager.setStreamVolume(1, medVol, 0); 
+			audioManager.setStreamVolume(3, vol, 0); //Media volume is decreased			
 			audioStreamType = 1;
 		    }  // end mod
                     mSoundNotification = r;
@@ -793,12 +798,13 @@ class NotificationManagerService extends INotificationManager.Stub
                             Binder.restoreCallingIdentity(identity);
                         }
 		    }
-		   /* if(audioManager.isMusicActive() /*&& Settings.System.getInt(
+		     // KrazyKrivda re-adjust volume
+		    /* if(audioManager.isMusicActive() /*&& Settings.System.getInt(
             		getContentResolver(),
             		Settings.System.NOTIFICATION_PULSE_BLEND, 0) == 0){
 			audioManager.setStreamVolume(1, sysVol, 0);
 			audioManager.setStreamVolume(3, medVol, 0);			
-		    }  //End mod... readjusting is done to quickly	*/		
+		    }  //End mod... readjusting is done before sound is played	*/		
                 }
 
                 // vibrate

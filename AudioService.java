@@ -163,7 +163,7 @@ public class AudioService extends IAudioService.Stub {
      * NOTE: do not create loops in aliases! */
     private int[] STREAM_VOLUME_ALIAS = new int[] {
         AudioSystem.STREAM_VOICE_CALL,  // STREAM_VOICE_CALL
-        AudioSystem.STREAM_SYSTEM,  // STREAM_SYSTEM KrazyKrivda changed as temp volume fix for
+        AudioSystem.STREAM_SYSTEM,  // STREAM_SYSTEM 
         AudioSystem.STREAM_RING,  // STREAM_RING
         AudioSystem.STREAM_MUSIC, // STREAM_MUSIC
         AudioSystem.STREAM_ALARM,  // STREAM_ALARM

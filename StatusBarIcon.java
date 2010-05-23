@@ -100,10 +100,10 @@ class StatusBarIcon {
                     new FrameLayout.LayoutParams(
                         FrameLayout.LayoutParams.WRAP_CONTENT,
                         FrameLayout.LayoutParams.WRAP_CONTENT,
-                        Gravity.CENTER | Gravity.CENTER_VERTICAL)); //KrazyKrivda batter percent
+                        Gravity.CENTER | Gravity.CENTER_VERTICAL)); //KrazyKrivda batter percent "centered"
                 mNumberView.setBackgroundDrawable(null);
                 mNumberView.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
-		mNumberView.setTextColor(0xffffcc66);                
+		mNumberView.setTextColor(0xffffcc66);  // made percent GOLD for theme              
 		mNumberView.setTextSize(12);
 
                 if (data.number > 0) {

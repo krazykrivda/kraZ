@@ -1562,11 +1562,12 @@ setScreenTimeout(mSettings.mScreenAwake ? ScreenTimeoutDuration.DEFAULT : Screen
                         }
                         abortBroadcast();
                     }
-		//Added headset hangup ability by KrazyKrivda (needs PhoneUtil change too)                
+		//Added headset hangup ability by KrazyKrivda (needs PhoneUtil change too)
+		// press wiredheadset for mute (above) long press to hangup (below)                
 		} else if (event.getRepeatCount() == 2){
 		   boolean consumed = PhoneUtils.handleHeadsetHook(phone, 1);
 		   if (consumed) {
-			abortBroadcast();
+			abortBroadcast();  // Media player starts sometimes if used to hang up?
 		   }	
                 //End of KrazyKrivda's addition
                 }else if (phone.getState() != Phone.State.IDLE) {

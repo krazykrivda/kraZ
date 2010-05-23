@@ -155,7 +155,8 @@ public class SpareParts extends PreferenceActivity
         mLauncherColumnPref = (CheckBoxPreference) prefSet.findPreference(LAUNCHER_COLUMN_PREF);
         mBatteryStatusPref = (CheckBoxPreference) prefSet.findPreference(BATTERY_STATUS_PREF);
         mCompcachePref = (CheckBoxPreference) prefSet.findPreference(COMPCACHE_PREF);
-        mNotificationPausePref = (CheckBoxPreference) prefSet.findPreference(NOTIFICATION_PAUSE_PREF);
+	// KrazyKrivda        
+	mNotificationPausePref = (CheckBoxPreference) prefSet.findPreference(NOTIFICATION_PAUSE_PREF);
 
         if (!isSwapEnabled()) {
             prefSet.removePreference(mCompcachePref);
@@ -201,7 +202,9 @@ public class SpareParts extends PreferenceActivity
             mCompcachePref.setChecked(Settings.Secure.getInt(
             		getContentResolver(),
             		Settings.Secure.COMPCACHE_ENABLED, 0) != 0);
-            /*mNotificationPausePref.setChecked(Settings.System.getInt(
+		// Get variable undefined issue for NOTIFICATION_PAUSE
+		// although Setings.java in provider DOES have variable?            
+		/*mNotificationPausePref.setChecked(Settings.System.getInt(
             		getContentResolver(),
             		Settings.System.NOTIFICATION_PAUSE, 0) != 0);*/
     }
