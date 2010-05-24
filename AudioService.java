@@ -147,7 +147,7 @@ public class AudioService extends IAudioService.Stub {
    /** @hide Maximum volume index values for audio streams */
     private int[] MAX_STREAM_VOLUME = new int[] {
         5,  // STREAM_VOICE_CALL
-        15,  // STREAM_SYSTEM
+        15,  // STREAM_SYSTEM KrazyKrivda adjusted so can be same level as music when needed
         7,  // STREAM_RING
         15, // STREAM_MUSIC
         7,  // STREAM_ALARM

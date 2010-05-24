@@ -1,52 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
-/* //device/apps/Settings/assets/res/any/layout/keyboard_version.xml
-**
-** Copyright 2006, The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-**
-**     http://www.apache.org/licenses/LICENSE-2.0 
-**
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-*/
+/*
+ * Copyright 2008, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+    <PreferenceCategory
+        android:title="@string/device_info_title">
 
-        <Spinner android:id="@+id/window_animation_scale"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true">
-        </Spinner>
+        <PreferenceScreen android:key="battery_history_settings"
+                android:title="@string/title_battery_history" 
+                android:summary="@string/summary_battery_history">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.battery_history.BatteryHistory" />
+        </PreferenceScreen>
+        
+        <PreferenceScreen android:key="battery_information_settings"
+                android:title="@string/title_battery_information" 
+                android:summary="@string/summary_battery_information">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.BatteryInfo" />
+        </PreferenceScreen>
+        
+        <PreferenceScreen android:key="usage_statistics_settings"
+                android:title="@string/title_usage_statistics" 
+                android:summary="@string/summary_usage_statistics">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.UsageStats" />
+        </PreferenceScreen>
+        
+    </PreferenceCategory>
+            
+    <PreferenceCategory
+        android:title="@string/general_title">
+        
+        <ListPreference
+                android:key="recent_apps_num"
+                android:title="@string/title_recent_apps_num"
+                android:summary="@string/summary_recent_apps_num"
+                android:entries="@array/entries_recent_apps_num"
+                android:entryValues="@array/entries_recent_apps_num"
+                android:dialogTitle="@string/dialog_title_recent_apps_num" />
+        
+        <ListPreference
+                android:key="window_animations"
+                android:title="@string/title_window_animations"
+                android:summary="@string/summary_window_animations"
+                android:entries="@array/entries_animations"
+                android:entryValues="@array/entryvalues_animations"
+                android:dialogTitle="@string/dialog_title_window_animations" />
+                
+        <ListPreference
+                android:key="transition_animations"
+                android:title="@string/title_transition_animations"
+                android:summary="@string/summary_transition_animations"
+                android:entries="@array/entries_animations"
+                android:entryValues="@array/entryvalues_animations"
+                android:dialogTitle="@string/dialog_title_transition_animations" />
+        
+        <CheckBoxPreference 
+            android:key="fancy_ime_animations" 
+            android:title="@string/title_fancy_ime_animations" 
+            android:summaryOn="@string/summary_on_fancy_ime_animations"
+            android:summaryOff="@string/summary_off_fancy_ime_animations"/>
 
-        <Spinner android:id="@+id/transition_animation_scale"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/window_animation_scale"
-            android:layout_alignParentLeft="true">
-        </Spinner>
+        <ListPreference
+                android:key="end_button"
+                android:title="@string/title_end_button"
+                android:summary="@string/summary_end_button"
+                android:entries="@array/entries_end_button"
+                android:entryValues="@array/entryvalues_end_button"
+                android:dialogTitle="@string/dialog_title_end_button" />
+        
+        <CheckBoxPreference 
+            android:key="haptic_feedback" 
+            android:title="@string/title_haptic_feedback" 
+            android:summaryOn="@string/summary_on_haptic_feedback"
+            android:summaryOff="@string/summary_off_haptic_feedback"/>
+        
 
-           
-        <CheckBox android:id="@+id/pin_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/show_maps_compass"
-            android:layout_alignParentLeft="true"
-            android:text="@string/title_pin_home" />
+        <CheckBoxPreference
+                android:key="compatibility_mode"
+                android:title="@string/compatibility_mode_title"
+                android:summaryOn="@string/compatibility_mode_summary_on"
+                android:summaryOff="@string/compatibility_mode_summary_off" />
+                
+        <CheckBoxPreference
+                android:key="battery_status"
+                android:title="@string/battery_status_title"
+                android:summaryOn="@string/battery_status_summary_on"
+                android:summaryOff="@string/battery_status_summary_off" />
 
-    </RelativeLayout>
+        <CheckBoxPreference
+            android:key="compcache_enabled"
+            android:title="@string/title_compcache_enabled"
+            android:summaryOn="@string/summary_on_compcache_enabled"
+            android:summaryOff="@string/summary_off_compcache_enabled" />
 
-</ScrollView>
+	<CheckBoxPreference
+                android:key="notification_pause"
+                android:title="@string/notification_pause_title"
+                android:summaryOn="@string/notification_pause_summary_on"
+                android:summaryOff="@string/notification_pause_summary_off" />
 
+
+    </PreferenceCategory>
+            
+    <PreferenceCategory
+        android:title="@string/applications_title">
+
+        <CheckBoxPreference
+            android:key="launcher_orientation"
+            android:title="@string/title_launcher_orientation"
+            android:summaryOn="@string/summary_on_launcher_orientation"
+            android:summaryOff="@string/summary_off_launcher_orientation" />
+
+        <CheckBoxPreference
+            android:key="launcher_columns"
+            android:title="@string/title_launcher_columns"
+            android:summaryOn="@string/summary_on_launcher_columns"
+            android:summaryOff="@string/summary_off_launcher_columns" />
+
+        
+        <CheckBoxPreference
+            android:key="pin_home"
+            android:title="@string/title_pin_home"
+            android:summaryOn="@string/summary_on_pin_home"
+            android:summaryOff="@string/summary_off_pin_home" />
+
+    </PreferenceCategory>
+        
+</PreferenceScreen>

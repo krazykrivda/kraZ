@@ -771,19 +771,17 @@ class NotificationManagerService extends INotificationManager.Stub
                     } else {
                         audioStreamType = DEFAULT_STREAM_TYPE;
                     }
+			// KrazyKrivda Music/Notificaiton MOD
+			// wanted to lower media volume for notificaiton
+			// and return to value after heard
+			// but is async so for now just set vols equal
 			int sysVol = audioManager.getStreamVolume(1);
 			int medVol = audioManager.getStreamVolume(3);
-			int vol = medVol-3; 		
-			// KrazyKrivda Music/Notificaiton MOD    
-		    
-			// getContentResolver is "undefined" when I try to compile?
-			// also was temporarily using NOTIFICATION_PULSE_BLEND just 
-			// to see if I COULD toggle this feature on and off
-		    if(audioManager.isMusicActive() /*&& Settings.System.getInt(
-            		getContentResolver(),
-            		Settings.System.NOTIFICATION_PULSE_BLEND, 0) == 0*/){
+			int adjVol = medVol-3; 		
+		    if(audioManager.isMusicActive() && Settings.System.getInt(
+          		mContext.getContentResolver(),
+            		Settings.System.NOTIFICATION_PAUSE, 0) == 0){
 			audioManager.setStreamVolume(1, medVol, 0); 
-			audioManager.setStreamVolume(3, vol, 0); //Media volume is decreased			
 			audioStreamType = 1;
 		    }  // end mod
                     mSoundNotification = r;
@@ -804,7 +802,8 @@ class NotificationManagerService extends INotificationManager.Stub
             		Settings.System.NOTIFICATION_PULSE_BLEND, 0) == 0){
 			audioManager.setStreamVolume(1, sysVol, 0);
 			audioManager.setStreamVolume(3, medVol, 0);			
-		    }  //End mod... readjusting is done before sound is played	*/		
+		    }  //End mod... readjusting is done before sound is played	
+			due to async so removed until proper delay is used	*/		
                 }
 
                 // vibrate

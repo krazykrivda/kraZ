@@ -79,7 +79,7 @@
 	<string name="summary_on_compcache_enabled">Compressed caching is enabled</string>
 	<string name="summary_off_compcache_enabled">Compressed caching is disabled</string>
 
-    <string name="notification_pause_title">Notification and Music behavior</string>
+    <string name="notification_pause_title">Notification pause</string>
     <string name="notification_pause_summary_on">Music will pause for a notifications</string>
     <string name="notification_pause_summary_off">Notifications will be heard WITH music</string>
 	

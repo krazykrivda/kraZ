@@ -1012,6 +1012,12 @@ public final class Settings {
         public static final String BLUETOOTH_DISCOVERABILITY_TIMEOUT =
             "bluetooth_discoverability_timeout";
 
+        /** KrazyKrivda
+         * Whether Notification Pause is eanbled during media playbck. 
+         * @hide
+         */
+        public static final String NOTIFICATION_PAUSE = "notification_pause";
+
         /**
          * Whether autolock is enabled (0 = false, 1 = true)
          */
@@ -2040,12 +2046,6 @@ public final class Settings {
          * @hide
          */
         public static final String COMPCACHE_ENABLED = "compcache_enabled";
-
-        /**
-         * Whether Notification Pause is eanbled. KrazyKrivda
-         * @hide
-         */
-        public static final String NOTIFICATION_PAUSE = "notification_pause";
         
         /**
          * Setting to allow mock locations and location provider status to be injected into the
